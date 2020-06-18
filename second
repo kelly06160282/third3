@@ -1,0 +1,16 @@
+double Analogin, Vin;
+void setup() {
+  Serial.begin(9600);
+  pinMode(14, INPUT);
+}
+
+void loop() {
+  for (int i = 0; i <= 5; i++)
+  {
+    Analogin = 0.7 * Analogin + 0.3 * analogRead(14);
+    Serial.println(Analogin);
+  }
+  Vin = Analogin * 2.5 / 4095;
+  Serial.println(Vin);
+  delay(250);
+}
